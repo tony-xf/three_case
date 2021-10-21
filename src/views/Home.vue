@@ -1,18 +1,42 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="home-page">
+        <div class="canvas" ref="canvasContainer"></div>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+    import SnowLib from '@/lib/snowLib'
+    import {ref, onMounted, onUnmounted} from 'vue';
+    export default {
+        setup(){
+            const canvasContainer = ref(null)
+            let lib = null;
+            function resize(){
+                lib.windowResize()
+            }
+            onMounted(async ()=>{
+                lib = new SnowLib(canvasContainer.value)
+                await lib.createObject()
+                lib.setCameraPosition()
+                window.addEventListener( 'resize', resize, false );
+                lib.render()
+            })
+            onUnmounted(()=>{
+                window.removeEventListener( 'resize', resize, false );
+            })
+            return {
+                canvasContainer
+            }
+        },
+    }
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
 </script>
+
+<style lang="scss" scoped>
+.home-page{
+    .canvas{
+        width: 100vw;
+        height: 100vh;
+    }
+}
+</style>

@@ -1,0 +1,19 @@
+$base-font-family: PingFangSC-Light,'microsoft yahei ui','helvetica neue','hiragino sans gb',tahoma,'microsoft yahei',simsun,sans-serif;
+$base-font-size: 14px;
+$base-line-height: 1.4;
+$base-font-color: #fff;
+$base-active-color: #009efd;
+
+$border-color: #eee;
+$background-color: #121212;
+
+$icon-qq-color: #4CAFE9;
+$icon-wechat-color: #51C332;
+$icon-github-color: #46B980;
+$container-max-width: 1285px;
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

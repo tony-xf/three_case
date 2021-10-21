@@ -1,4 +1,4 @@
-# vue3-base
+# three-case
 
 ## Project setup
 ```
