@@ -3,8 +3,9 @@
  * 请求拦截、响应拦截、错误统一处理
  */
 import axios from 'axios';
-import router from '../router.js';
+import {useRouter} from 'vue-router';
 //import { ElMessage } from 'element-plus'
+const router = useRouter()
 /**
  * 提示处理函数
  */
@@ -22,6 +23,7 @@ const tip = (msg, type='error') => {
  * 携带当前页面路由，以期在登录页面完成登录后返回当前页面
  */
 const toLogin = () => {
+
     router.replace({
         path: '/login',
         query: {
