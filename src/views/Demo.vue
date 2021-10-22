@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import {createStar, createDynamicPoint} from '@/lib/demo'
+    import {createStar, createDynamicPoint, roomMain} from '@/lib/demo'
     import {ref, onMounted} from 'vue';
     import { useRoute } from 'vue-router'
     export default {
@@ -20,6 +20,8 @@
                     createStar(demoView.value)
                 }else if(route.params.name === 'dynamic'){
                     createDynamicPoint(demoView.value)
+                }else if(route.params.name === 'room'){
+                    roomMain(demoView.value)
                 }
             })
             return {

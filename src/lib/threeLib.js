@@ -12,6 +12,7 @@ function getCamera(width, height){
 }
 function getRenderer(width, height){
     let renderer = new THREE.WebGLRenderer()
+    renderer.setPixelRatio( window.devicePixelRatio )
     renderer.setSize(width, height)
     return renderer
 }
