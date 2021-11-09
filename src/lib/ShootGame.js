@@ -74,7 +74,6 @@ export const shootGame = function(container){
             this.points = path.points
             this.scene.add(path.mesh)
             createCar().then((mesh)=>{
-                console.log(mesh)
                 mesh.name = 'car'
                 mesh.scale.set(0.08,0.08,0.08)
                 mesh.position.set(this.points[0].x, this.points[0].y, this.points[0].z);
