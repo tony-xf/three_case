@@ -3,7 +3,7 @@ import {FBXLoader} from "three/examples/jsm/loaders/FBXLoader";
 export const shootGame = function(container){
     function createPlane(){
         const geometry = new THREE.PlaneBufferGeometry(2000, 2000, 32, 32)
-        const material = new THREE.MeshBasicMaterial({color: 0xffffff, side: THREE.DoubleSide})
+        const material = new THREE.MeshBasicMaterial({color: 0xeeeeee, side: THREE.DoubleSide})
         return new THREE.Mesh(geometry, material)
     }
     const keyCode = {}
@@ -64,6 +64,15 @@ export const shootGame = function(container){
             if(keyCode[68]){
                 this.camera.rotation.y -= Math.PI/72
             }
+            if(keyCode[87]){
+                //前进
+                this.camera.rotation.z += 0.001
+            }
+            if(keyCode[83]){
+                //后退
+                this.camera.rotation.z -= 0.001
+            }
+
         }
         initModel(){
             //this.scene.rotation.x = -Math.PI/2
