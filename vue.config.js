@@ -18,9 +18,7 @@ module.exports = {
     publicPath: isProd ? pluginOptions.path : '/',
     // 是否生成sourcemap文件，生产环境不生成以加速生产环境构建
     configureWebpack: config => {
-        if(!isProd){
-            config.devtool = 'source-map'
-        }
+        config.devtool = isProd ? false: 'source-map'
     },
     chainWebpack: config => {
         config

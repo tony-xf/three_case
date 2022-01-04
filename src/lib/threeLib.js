@@ -39,6 +39,13 @@ class ThreeLib{
         const light = new THREE.AmbientLight( 0xffffff );
         this.scene.add( light );
     }
+    windowResize(){
+        const width = window.innerWidth
+        const height = window.innerHeight
+        this.camera.accept = width/height
+        this.camera.updateProjectionMatrix()
+        this.renderer.setSize(width, height)
+    }
     render(){
         const animation = ()=>{
             this.renderer.render(this.scene, this.camera)

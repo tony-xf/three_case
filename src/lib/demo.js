@@ -2,7 +2,7 @@ import StarModel from "./StarModel";
 import DynamicPoint from './DynamicPoint'
 import { createRoom } from "./Room";
 import { shootGame } from "./ShootGame";
-
+import { createOcean } from './Ocean'
 export const createStar = (container)=>{
     const lib = new StarModel(container)
     lib.createOrbitControls()
@@ -20,5 +20,9 @@ export const roomMain = (container)=>{
 }
 export const createShoot = (container)=>{
     const lib = shootGame(container)
+    lib.render()
+}
+export const oceanMain = (container)=>{
+    const lib = createOcean(container)
     lib.render()
 }

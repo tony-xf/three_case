@@ -6,23 +6,25 @@
 
 <script>
     import SnowLib from '@/lib/snowLib'
+    import { oceanMain } from "@/lib/demo";
     import {ref, onMounted, onUnmounted} from 'vue';
     export default {
         setup(){
             const canvasContainer = ref(null)
             let lib = null;
-            function resize(){
-                lib.windowResize()
-            }
+            // function resize(){
+            //     lib.windowResize()
+            // }
             onMounted(async ()=>{
-                lib = new SnowLib(canvasContainer.value)
-                await lib.createObject()
-                lib.setCameraPosition()
-                window.addEventListener( 'resize', resize, false );
-                lib.render()
+                // lib = new SnowLib(canvasContainer.value)
+                // await lib.createObject()
+                // lib.setCameraPosition()
+                // window.addEventListener( 'resize', resize, false );
+                // lib.render()
+              oceanMain(canvasContainer.value)
             })
             onUnmounted(()=>{
-                window.removeEventListener( 'resize', resize, false );
+                //window.removeEventListener( 'resize', resize, false );
             })
             return {
                 canvasContainer
