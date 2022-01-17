@@ -3,6 +3,7 @@ import DynamicPoint from './DynamicPoint'
 import { createRoom } from "./Room";
 import { shootGame } from "./ShootGame";
 import { createOcean } from './Ocean'
+import { nikeModel} from './nikeModel'
 export const createStar = (container)=>{
     const lib = new StarModel(container)
     lib.createOrbitControls()
@@ -24,5 +25,9 @@ export const createShoot = (container)=>{
 }
 export const oceanMain = (container)=>{
     const lib = createOcean(container)
+    lib.render()
+}
+export const nikeObj = (container) => {
+    const lib = nikeModel(container)
     lib.render()
 }

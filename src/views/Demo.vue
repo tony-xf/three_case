@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import {createStar, createDynamicPoint, roomMain, createShoot} from '@/lib/demo'
+    import {createStar, createDynamicPoint, roomMain, createShoot, nikeObj} from '@/lib/demo'
     import {ref, onMounted} from 'vue';
     import { useRoute } from 'vue-router'
     export default {
@@ -24,6 +24,8 @@
                     roomMain(demoView.value)
                 }else if(route.params.name === 'shoot'){
                     createShoot(demoView.value)
+                }else if(route.params.name === 'nike'){
+                    nikeObj(demoView.value)
                 }
             })
             return {

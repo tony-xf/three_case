@@ -3,7 +3,7 @@ import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader';
 import ThreeLib from './threeLib';
 const base = process.env.BASE_URL
 function loadGLTFModel(url){
-    const loader = new THREE.ObjectLoader();
+    const loader = new THREE.FileLoader();
     return new Promise((resolve, reject)=>{
         loader.load(url, (data)=>{
             resolve(data)
@@ -12,9 +12,10 @@ function loadGLTFModel(url){
         })
     })
 }
-export default class Nike extends ThreeLib{
+class Nike extends ThreeLib{
     constructor(container){
         super(container)
+        this.loadModel()
     }
     loadModel(){
         loadGLTFModel(`${base}models/bracelet.less`).then((data)=>{
@@ -31,4 +32,7 @@ export default class Nike extends ThreeLib{
             geometry.setAttribute(i, data.attributes[i])
         }
     }
+}
+export const nikeModel = function(container){
+    return new Nike(container)
 }
